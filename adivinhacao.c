@@ -10,12 +10,12 @@ int main (){
 	erros = 0;
 	
 	printf("Qual o seu chute?\n");
-	scanf("%d", &chute)
+	scanf("%d", &chute);
 		
 	if (chute == numsec)
-		printf("** Parabens, você acertou! **");
+		printf("** Parabens, você acertou! \n**");
 	else if(chute > numsec)
-		printf("** Você chutou %d! Eu pensei em um numero menor! **", chute);
+		printf("** Você chutou %d! Eu pensei em um numero menor! \n**", chute);
 	else
-		printf("** Você chutou %d! eu pensei em um numero menor! **", chute);
+		printf("** Você chutou %d! eu pensei em um numero menor! \n**", chute);
 }

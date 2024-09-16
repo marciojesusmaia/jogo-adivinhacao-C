@@ -7,15 +7,21 @@ int main (){
 	
 	int numsec = 42;
 	int chute, erros;
-	erros = 0;
+
 	
+	for (int i = 1;i <= 3; i++){
 	printf("Qual o seu chute?\n");
 	scanf("%d", &chute);
 		
 	if (chute == numsec)
-		printf("** Parabens, você acertou! \n**");
-	else if(chute > numsec)
-		printf("** Você chutou %d! Eu pensei em um numero menor! \n**", chute);
-	else
-		printf("** Você chutou %d! eu pensei em um numero menor! \n**", chute);
+		printf("** Parabens, você acertou! **\n");
+	
+	else{
+		if(chute > numsec)
+			printf("Seu chute foi maior que o numero secreto!");
+		else
+			printf("seu numero foi menor que o numeri secreto!");
+		}
+	}
+	printf(" Fim do jogo! ");
 }

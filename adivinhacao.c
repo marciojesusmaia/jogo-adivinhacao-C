@@ -1,36 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define TENTATIVAS 3
 int main (){
-	printf("************************************\n");	
+	
+	printf("************************************\n");
+	printf("*                                  *\n");
 	printf("* Bem vindo ao jogo de adivinhação *\n");
+	printf("*                                  *\n");
 	printf("************************************\n");
 	
 	int numsec = 42;
 	int chute, erros;
 	erros = 0;
+	//menor = chute < numsec;
+	int maior = chute > numsec;
 	
-	for (int i = 1;i <= 3; i++){
+	for (int i = 1;i <= TENTATIVAS; i++){
 	printf("Qual o seu chute?\n");
 	scanf("%d", &chute);
+		if (chute < 0){
+			printf("Somente numeros positivos!!\n");
+			exit(1);
+	}
 		
 	if (chute == numsec){
 		printf("** Parabens, você acertou! **\n");
-		printf("** Você teve %d erros! **\n", erros);
-		printf("** Fim do jogo! **\n");
-		exit(1);
-		}
+		break;
+				}
 	
+	else if(maior){
+			printf("Seu %dº chute foi maior que o numero secreto!\n", i);
+			erros++;
+				}
 	else{
-		if(chute > numsec){
-			printf("Seu chute foi maior que o numero secreto!");
-			erros++;
-		}
-		else{
-			printf("seu numero foi menor que o numeri secreto!");
+			printf("Seu %dº numero foi menor que o numeri secreto!\n", i);
 			erros++;
 		}
 		}
+	printf("** Você teve %d erros! **\n\n", erros);
+	printf("Fim do jogo!\n");
+	
 	}
-	printf(" Fim do jogo!\n ");
-}
+	

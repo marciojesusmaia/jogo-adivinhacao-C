@@ -11,35 +11,38 @@ int main (){
 	printf("************************************\n");
 	
 	int numsec = 42;
-	int chute, erros;
+	int chute, erros, tentativas;
 	erros = 0;
+	tentativas =1;
 	//menor = chute < numsec;
-	int maior = chute > numsec;
 	
-	for (int i = 1;i <= TENTATIVAS; i++){
-	printf("Qual o seu chute?\n");
+	
+	while (chute != numsec){
+	printf("Qual o seu %d chute?\n", tentativas);
 	scanf("%d", &chute);
 		if (chute < 0){
 			printf("Somente numeros positivos!!\n");
 			exit(1);
-	}
+		}
 		
-	if (chute == numsec){
-		printf("** Parabens, você acertou! **\n");
-		break;
-				}
+		if (chute == numsec){
+			printf("\n** Parabens, você acertou! **\n");
+					}
 	
-	else if(maior){
-			printf("Seu %dº chute foi maior que o numero secreto!\n", i);
-			erros++;
-				}
-	else{
-			printf("Seu %dº numero foi menor que o numeri secreto!\n", i);
-			erros++;
+		else {
+			if(chute > numsec){
+				printf("Você chutou um numero maior! tente novamente...\n");
+				erros++;
+					}
+		else{
+				printf("Você chutou um numero menor! tente novamente...\n");
+				erros++;
+			}
 		}
-		}
+		tentativas++;
+	}
 	printf("** Você teve %d erros! **\n\n", erros);
-	printf("Fim do jogo!\n");
+	printf("-- Fim do jogo! --\n");
 	
 	}
 	

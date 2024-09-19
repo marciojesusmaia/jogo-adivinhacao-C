@@ -7,8 +7,11 @@
 
 int main (){
 	int numsec = 42;
-	int pontos = 1000;
-	int chute, erros, tentativas, scorep;
+	double pontos = 1000;
+	int chute, erros, tentativas;
+	erros = 0;
+	tentativas = 1;
+	double pontosp = 0;
 	
 	printf("************************************\n");
 	printf("*                                  *\n");
@@ -16,8 +19,7 @@ int main (){
 	printf("*                                  *\n");
 	printf("************************************\n");
 	
-		erros = 0;
-		tentativas = 1;
+		
 	while (chute != numsec){
 
 		printf("Qual o seu %d chute?\n", tentativas);
@@ -31,6 +33,7 @@ int main (){
 
 			if (chute == numsec){
 				printf("\n** Parabens, você acertou! e teve %d erros **\n", erros);
+				printf("** Você fez: %.1f pontos! **\n", pontos);
 				printf("-- Fim do jogo! --\n");
 				break;
 						}
@@ -43,7 +46,8 @@ int main (){
 				
 			tentativas++;
 			erros++;
+			pontosp= (chute - numsec)/2.0;
+		pontos = pontos - abs(pontosp);
 			}
-			
 		}
 	
